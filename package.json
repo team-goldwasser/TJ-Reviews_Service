@@ -2,10 +2,12 @@
   "name": "rotten_tomatoes_reviews_service",
   "version": "1.0.0",
   "description": "Rotten Tomatoes User Reviews",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "react": "webpack -d --watch"
+    "react": "webpack -d --watch",
+    "start": "nodemon server/app.js",
+    "seed": "mysql -u root <server/schema.sql && node data/scripts/generateMovieReviews.js && node data/scripts/generateUsers.js && node server/database/index.js"
   },
   "repository": {
     "type": "git",
@@ -26,9 +28,12 @@
     "webpack-cli": "^3.2.1"
   },
   "dependencies": {
+    "eslint": "^5.13.0",
     "express": "^4.16.4",
     "jquery": "^3.3.1",
     "mysql": "^2.16.0",
-    "xmlhttprequest": "^1.8.0"
+    "nodemon": "^1.18.10",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
   }
 }

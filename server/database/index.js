@@ -20,14 +20,16 @@ connection.connect(function(err){
    movieReviews.forEach( (review) => {
       // var sql = "INSERT INTO audience_reviews (id, review, user_id, movie_id, stars, not_interested, want_to_see_it) VALUES (" + review.id + "," + mysql.escape(review.review) + "," + review.user_id + "," + review.movie_id + "," + review.stars + "," + review.not_interested + "," + review.want_to_see_it + ")";
       var sql = `INSERT INTO audience_reviews (id, review, user_id, \
-               movie_id, stars, not_interested, want_to_see_it) VALUES (${review.id}, \
+               movie_id, stars, not_interested, want_to_see_it, liked) VALUES (${review.id}, \
                ${mysql.escape(review.review)}, ${review.user_id}, ${review.movie_id}, \
-               ${review.stars}, ${review.not_interested}, ${review.want_to_see_it})`;
+               ${review.stars}, ${review.not_interested}, ${review.want_to_see_it}, \
+               ${review.liked})`;
       connection.query(sql, (err, res) => {
          if (err) {
             console.log("err writing", err);
+         } else {
+            console.log("record was inserted");
          }
-         console.log("record was inserted");
       });
    });
 
@@ -40,9 +42,11 @@ connection.connect(function(err){
       connection.query(sql, (err, res) => {
          if (err) {
             console.log("err writing", err);
+         } else {
+            console.log("record was inserted");
          }
-         console.log("record was inserted");
       });
    });
    
+   connection.end();
 });

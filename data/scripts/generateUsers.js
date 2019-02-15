@@ -1,6 +1,7 @@
-var getRandomInt = require('./generateMovieReviews').getRandomInt;
+var getRandomInt = require('./generateMovieReviews.js').getRandomInt;
 var fs = require('fs');
 // Generate users - 
+//DONE   id
 //DONE   username VARCHAR(30),
 //DONE   has_profile_pic TINYINT(1),
 //   etag varchar(255),
@@ -20,7 +21,7 @@ for (let i = 0; i < loremArr.length; i++) {
   userData.push(user);
 }
 
-fs.writeFile('../user.json', JSON.stringify(userData, null, 2), 'utf-8', (err) => {
+fs.writeFile('data/user.json', JSON.stringify(userData, null, 2), 'utf-8', (err) => {
   if (err) {
     console.log("error writing user data", err);
   }

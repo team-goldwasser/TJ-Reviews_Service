@@ -3,13 +3,13 @@ var db = require('../server/database/config.js');
 var app = express();
 var bodyParser = require('body-parser');
 
-app.use(express.static(__dirname + '/../client'));
+app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/reviews/audience/:title', (req, res) => {
   // req.params.title
   console.log("Connected to db");
-  db.query(`SELECT * FROM audience_reviews where movie_id=${req.params.title};`, (err, results) => {
+  db.query(`SELECT * FROM audience_reviews where movie_id=${req.params.title} LIMIT 4;`, (err, results) => {
     if (err) {
       console.log("Error getting reviews", err);
     } else {
@@ -26,16 +26,19 @@ app.get('/reviews/scoreboard/:title', (req, res) => {
     } else {
       var reviewCount = 0;
       var rating = 0;
+      var liked = 0;
       results.forEach( (movie) => {
         reviewCount += 1;
         rating += movie.stars;
+        liked += movie.liked;
       });
       console.log('Number of reviews', reviewCount);
       console.log('stars', rating/reviewCount);
-      // TO DO: Audience Score, % LIKED
+      console.log('% liked: ', liked/reviewCount);
+
       var scoreboard = {};
-      //scoreboard.audienceScore = 
-      scoreboard.averageRating = rating/reviewCount;
+      scoreboard.audienceScore = (liked/reviewCount*100).toFixed(0);
+      scoreboard.averageRating = (rating/reviewCount).toFixed(1);
       scoreboard.userRatings = reviewCount;
       res.send(scoreboard);
     }

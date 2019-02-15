@@ -12,6 +12,7 @@ CREATE TABLE audience_reviews (
   created_at DATETIME,
   not_interested TINYINT(1),
   want_to_see_it TINYINT(1),
+  liked TINYINT(1),
   PRIMARY KEY (id)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
