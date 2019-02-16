@@ -7,13 +7,13 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/reviews/audience/:title', (req, res) => {
-  // req.params.title
   console.log("Connected to db");
-  db.query(`SELECT * FROM audience_reviews where movie_id=${req.params.title} LIMIT 4;`, (err, results) => {
+  db.query(`SELECT id, users.username, review, stars FROM audience_reviews \
+  INNER JOIN users ON users.user_id = audience_reviews.user_id 
+  AND movie_id=${req.params.title} LIMIT 4;`, (err, results) => {
     if (err) {
       console.log("Error getting reviews", err);
     } else {
-      console.log('res', res);
       res.send(JSON.stringify(results, null, 2));
     } 
   });

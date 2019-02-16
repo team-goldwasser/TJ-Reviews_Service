@@ -26,9 +26,9 @@ CREATE TABLE users (
   UNIQUE KEY(username)
 );
 
-CREATE TABLE movies (
-  movie_id INT NOT NULL,
-  movie_title VARCHAR(50),
-  title_url VARCHAR(50),
-  PRIMARY KEY(movie_id)
-);
+-- CREATE TABLE movies (
+--   movie_id INT NOT NULL,
+--   movie_title VARCHAR(50),
+--   title_url VARCHAR(50),
+--   PRIMARY KEY(movie_id)
+-- );

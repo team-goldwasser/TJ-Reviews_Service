@@ -1,15 +1,16 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
-const $ = require('jquery');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from'jquery';
+
+import AudienceReview from './components/AudienceReview.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "284054",
-      stars: "",
-      review: ""
-
+      id: "284054",
+      title: "",
+      reviews: []
     };
     this.getMovieID = this.getMovieID.bind(this);
     this.getMovieReviews = this.getMovieReviews.bind(this);
@@ -18,9 +19,12 @@ class App extends React.Component {
   // get ID from source of truth
   getMovieReviews() {
     $.ajax({
-      url: `/reviews/audience/${this.state.title}`,
+      url: `/reviews/audience/${this.state.id}`,
       success: (data) => {
-        console.log('wtf', data);
+        console.log('data', JSON.parse(data));
+        this.setState({
+          reviews: JSON.parse(data)
+        });
       },
       error: (err) => {
         console.log("error getting movie data", err);
@@ -41,10 +45,7 @@ class App extends React.Component {
   }
   render() {
     return(
-      <div>
-        <div className='audienceReviewHeader'>Audience Reviews for {this.state.title}</div>
-        
-      </div>
+      <AudienceReview title={this.state.title} reviews={this.state.reviews}/>
     )
   }
 }

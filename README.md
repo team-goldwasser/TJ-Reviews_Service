@@ -42,5 +42,6 @@ Contains RESTful for:
   STRETCH:
   POST: /reviews/audience/:title/:user
 
+Combined generating users and movie reviews into one seed script, run by using npm run seed
   
 
