@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS reviews;
-CREATE DATABASE reviews;
+DROP DATABASE IF EXISTS UATreviews;
+CREATE DATABASE UATreviews;
 
-USE reviews;
+USE UATreviews;
 
 CREATE TABLE audience_reviews (
   id INT NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE audience_reviews (
   want_to_see_it TINYINT(1),
   liked TINYINT(1),
   PRIMARY KEY (id)
-) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=MEMORY DEFAULT CHARSET=utf8;
 
 CREATE TABLE users (
   user_id INT NOT NULL,
@@ -24,11 +24,4 @@ CREATE TABLE users (
   objectURL varchar(255),
   PRIMARY KEY(user_id),
   UNIQUE KEY(username)
-);
-
--- CREATE TABLE movies (
---   movie_id INT NOT NULL,
---   movie_title VARCHAR(50),
---   title_url VARCHAR(50),
---   PRIMARY KEY(movie_id)
--- );
+)ENGINE=MEMORY ;
