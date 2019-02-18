@@ -47,6 +47,8 @@ app.get('/reviews/scoreboard/:title', (req, res) => {
 
 let port = process.env.PORT || 9003;
 
-app.listen(port, function() {
+var server = app.listen(port, function() {
   console.log(`listening on port ${port}`);
 });
+
+module.exports = {server, db};
