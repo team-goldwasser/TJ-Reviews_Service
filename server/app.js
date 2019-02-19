@@ -1,5 +1,5 @@
 var express = require('express');
-var db = require('../server/database/config.js');
+var db = require('./database/config.js');
 var app = express();
 var bodyParser = require('body-parser');
 
