@@ -1,26 +1,38 @@
+var mysql = require('mysql');
 var express = require('express');
-var db = require('./database/config.js');
+// var db = require('./database/config.js');
 var app = express();
 var bodyParser = require('body-parser');
+var env = process.env.NODE_ENV || 'development';
+var db = require('./database/config')[env];
 
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({extended: true}));
 
+var connection = mysql.createConnection(db);
+
+connection.connect(function(err) {
+  if (err) {
+     console.log(err);
+  }
+  // console.log("Connected to db");
+});
+
 app.get('/reviews/audience/:title', (req, res) => {
   console.log("Connected to db");
-  db.query(`SELECT id, users.username, review, stars FROM audience_reviews \
+  connection.query(`SELECT id, users.username, review, stars FROM audience_reviews \
   INNER JOIN users ON users.user_id = audience_reviews.user_id 
   AND movie_id=${req.params.title} LIMIT 4;`, (err, results) => {
     if (err) {
       console.log("Error getting reviews", err);
     } else {
       res.send(JSON.stringify(results, null, 2));
-    } 
+    }
   });
 });
 
 app.get('/reviews/scoreboard/:title', (req, res) => {
-  db.query(`SELECT * FROM audience_reviews where movie_id=${req.params.title};`, (err, results) => {
+  connection.query(`SELECT * FROM audience_reviews where movie_id=${req.params.title};`, (err, results) => {
     if (err) {
       console.log('Error getting reviews', err);
     } else {
@@ -51,4 +63,4 @@ var server = app.listen(port, function() {
   console.log(`listening on port ${port}`);
 });
 
-module.exports = {server, db};
+module.exports = {server, connection};

@@ -1,17 +1,22 @@
-var mysql = require('mysql');
-
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'reviews'
-});
-
-connection.connect(function(err) {
-  if (err) {
-     console.log(err);
+var config = {
+  development: {
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'reviews'
+  },
+  UAT: {
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'UATreviews'
+  },
+  production: {
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'reviews'
   }
-  // console.log("Connected to db");
-});
+}
 
-module.exports = connection;
+module.exports = config;

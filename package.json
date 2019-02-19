@@ -6,7 +6,7 @@
   "scripts": {
     "react": "webpack -d --watch",
     "start": "nodemon server/app.js",
-    "test": "mysql -u root <test/db/UATschema.sql && jest",
+    "test": "export NODE_ENV=UAT && mysql -u root <test/db/UATschema.sql && jest -i",
     "seed": "mysql -u root <server/schema.sql && node data/scripts/generateMovieReviews.js && node data/scripts/generateUsers.js && node server/database/index.js"
   },
   "repository": {
