@@ -7,7 +7,7 @@ afterEach( () => {
 
 afterAll( () => {
   app.db.end();
-})
+});
 
 describe("Testing Get for '/'", () => {
   test('It should respond with a status code of 200', () => {
