@@ -1,17 +1,18 @@
 const request = require('supertest');
 const app = require('../../server/app.js');
+const db = require('../../server/database/helper.js');
 
 afterEach( () => {
   app.server.close();
 });
 
 afterAll( () => {
-  app.connection.end();
+  db.connection.end();
 });
 
 describe("it should successfully insert multiple records into tables", () => {
   test('Insert rows into audience_reviews table', () => {
-    app.connection.query("INSERT INTO audience_reviews VALUES (2, 'Wow, did you know kingpin was modelled after daredevils', 3, 204098, 3.5, now(), NULL, NULL, 0), (3, 'Love Hailey Steinfeld!', 2, 204098, 5, now(), NULL, NULL, 1);", (err, results) => {
+    db.connection.query("INSERT INTO audience_reviews VALUES (2, 'Wow, did you know kingpin was modelled after daredevils', 3, 204098, 3.5, now(), NULL, NULL, 0), (3, 'Love Hailey Steinfeld!', 2, 204098, 5, now(), NULL, NULL, 1);", (err, results) => {
       if (err) {
         throw err;
       }
@@ -19,7 +20,7 @@ describe("it should successfully insert multiple records into tables", () => {
     });
   });
   test('Insert rows into users table', () => {
-    app.connection.query("INSERT INTO users VALUES (2, 'Bob', 0, NULL, NULL), (3, 'Alice', 0, NULL, NULL);", (err, results) => {
+    db.connection.query("INSERT INTO users VALUES (2, 'Bob', 0, NULL, NULL), (3, 'Alice', 0, NULL, NULL);", (err, results) => {
       if (err) {
         throw err;
       }
@@ -67,12 +68,12 @@ describe("Testing Get for '/reviews/scoreboard/:title'", () => {
       expect(response.status).toEqual(200);
     });
   });
-  test('It should return four reviews', () => {
+  test('It should return two reviews', () => {
     return request(app.server).get('/reviews/scoreboard/204098').then( (response) => {
       var audienceReview = JSON.parse(response.text);
-      expect(audienceReview.audienceScore).toEqual("50");
-      expect(audienceReview.averageRating).toEqual("4.3");
-      expect(audienceReview.userRatings).toEqual(2);
+      expect(audienceReview[0].audienceScore).toEqual(50);
+      expect(audienceReview[0].averageRating).toEqual(4.25);
+      expect(audienceReview[0].userRatings).toEqual(2);
     });
   });
   test('It should respond with a empty object when passed in invalid title id', () => {
