@@ -1,0 +1,63 @@
+curl http://localhost:9003/reviews/audience/284054
+[
+  {
+    "id": 59,
+    "username": "deal",
+    "review": "Cat ipsum dolor sit amet, touch my tail, i shred your hand purrrr slap owner's face at 5am until human fills food dish. Purr while eating sit in box or steal the warm chair right after you get up damn that dog yet scamper annoy the old grumpy cat, start a fight and then retreat to wash when i lose stand in doorway, unwilling to chose whether to stay in or go",
+    "stars": 0
+  },
+  {
+    "id": 60,
+    "username": "do",
+    "review": "dolor sit amet, touch my tail, i shred your hand purrrr slap owner's face at 5am until human fills food dish. Purr while eating sit in box or steal the warm chair right after you get up damn that dog yet scamper annoy the old grumpy cat, start a fight and then retreat to wash when i lose stand in doorway, unwilling to chose whether to stay in or go out. Stare at owner accusingly then wink. Lick face hiss at owner, pee a lot, and meow repeatedly scratch at fence purrrrrr",
+    "stars": 3
+  },
+  {
+    "id": 61,
+    "username": "do",
+    "review": "tail, i shred your hand purrrr slap owner's face at 5am until human fills food dish. Purr while eating sit in box or steal the warm chair right after you get up damn that dog yet scamper annoy the old grumpy cat, start a fight and then retreat to wash when i lose stand in doorway, unwilling to chose whether to stay in or go out. Stare at owner accusingly then wink. Lick face hiss",
+    "stars": 3.5
+  },
+  {
+    "id": 62,
+    "username": "development",
+    "review": "tail, i shred your hand purrrr slap owner's face at 5am until human fills food dish. Purr while eating sit in box or steal the warm chair right after you get up damn that dog yet scamper annoy the old grumpy cat, start a fight and then retreat to wash when i lose stand in doorway, unwilling to chose whether to stay in or go out. Stare at owner accusingly then wink. Lick face hiss at owner, pee a lot, and meow repeatedly scratch at fence purrrrrr eat muffins and poutine until owner comes back meow all night having their mate disturbing sleeping humans",
+    "stars": 0.5
+  }
+]
+
+curl http://localhost:9003/reviews/scoreboard/284054
+
+[ { "averageRating": 1.75, "userRatings": 4, "audienceScore": 75 } ]
+
+curl http://localhost:9003/reviews/scoreboard/284053
+
+[ { "averageRating": 1.5, "userRatings": 9, "audienceScore": 55.5556 } ]
+
+curl http://localhost:9003/reviews/audience/284053
+[
+  {
+    "id": 50,
+    "username": "financial",
+    "review": "i shred your hand purrrr slap owner's face at 5am until human fills food dish. Purr while eating sit in box or steal the warm chair right after you get up damn that dog yet scamper annoy the old grumpy cat, start a fight and then retreat to wash when i lose",
+    "stars": 3
+  },
+  {
+    "id": 51,
+    "username": "direction",
+    "review": "Cat ipsum dolor sit amet, touch my tail, i shred your hand purrrr slap owner's face at 5am until human fills food dish. Purr while eating sit in box or steal the warm chair right after you get up damn that dog yet scamper annoy the old grumpy cat, start a fight and then retreat to wash when i lose stand in doorway, unwilling to chose whether to stay in or go out. Stare at owner accusingly then wink. Lick face hiss at owner, pee a lot, and meow repeatedly scratch at fence purrrrrr eat",
+    "stars": 0
+  },
+  {
+    "id": 52,
+    "username": "current",
+    "review": "tail,",
+    "stars": 1
+  },
+  {
+    "id": 53,
+    "username": "finally",
+    "review": "Cat ipsum dolor sit amet, touch my tail, i shred your hand purrrr slap owner's face at 5am until human fills food dish. Purr while eating sit in box or steal the warm chair right after you get up damn that dog yet scamper annoy the old grumpy cat, start a fight and then retreat to wash when i lose stand in doorway, unwilling to chose whether to stay in or go out. Stare at owner accusingly then wink. Lick face hiss at owner, pee a lot, and meow repeatedly scratch at fence purrrrrr eat muffins and poutine until owner comes back meow all night having their mate disturbing sleeping humans but chase dog then run away yet white cat sleeps on a black shirt and attempt to leap between furniture but woefully miscalibrate and bellyflop onto the floor; what's your problem? i meant to do that now i shall wash myself intently ooooh",
+    "stars": 1.5
+  }
+]
