@@ -8,7 +8,7 @@ CREATE TABLE audience_reviews (
   review VARCHAR(1000),
   user_id INT,
   movie_id INT,
-  stars INT,
+  stars FLOAT(2,1),
   created_at DATETIME,
   not_interested TINYINT(1),
   want_to_see_it TINYINT(1),

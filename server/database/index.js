@@ -1,13 +1,10 @@
 var mysql = require('mysql');
 var movieReviews = require('../../data/movieReviews.json');
 var users = require('../../data/user.json');
+var env = process.env.NODE_ENV || 'development';
+var config = require('./config.js')[env];
 
-var connection = mysql.createConnection({
-  host : 'localhost',
-  user: 'root',
-  password:'',
-  database: 'reviews'
-});
+var connection = mysql.createConnection(config);
 
 connection.connect(function(err){
    if (err){
