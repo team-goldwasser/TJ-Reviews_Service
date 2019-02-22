@@ -24,7 +24,6 @@ app.get('/reviews/scoreboard/:title', (req, res) => {
       res.send(JSON.stringify(results, null, 2));
     }
   });
-  //scoreboard.audienceScore = (liked/reviewCount*100).toFixed(0);
 });
 
 let port = process.env.PORT || 9003;

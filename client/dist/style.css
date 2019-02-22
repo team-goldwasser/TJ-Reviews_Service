@@ -1,0 +1,27 @@
+div {
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+
+.audienceReviewHeader {
+  white-space: nowrap;
+  font-size: 28px;
+  font-family: 'Neusa Next Pro Compact, Arial';
+  font-weight: 600;
+  line-height: 25px;
+}
+.audienceReviewHeader::before {
+  background-color: #fa320a;
+  content: ' ';
+  min-width: 20px;
+  height: 20px;
+}
+.header-movietitle::after {
+  content: '';
+  margin-left: 11px;
+  width: 100%;
+  background-color: #fa320a;
+  min-width: 20px;
+  height: 20px;
+  position: absolute;
+}
