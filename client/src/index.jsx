@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from'jquery';
+import $ from 'jquery';
 
 import AudienceReview from './components/AudienceReview.jsx';
 
@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       id: "284054",
-      title: "",
+      title: "How to Train your Dragon: The Hidden World",
       reviews: []
     };
     this.getMovieID = this.getMovieID.bind(this);

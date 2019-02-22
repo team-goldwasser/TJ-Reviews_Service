@@ -1,14 +1,32 @@
-div {
-  overflow: hidden;
-  text-overflow:ellipsis;
+@font-face {
+  font-family: "BebasNeue";
+  src: url("fonts/BebasNeue.otf") format("opentype")
 }
 
+body {
+  margin: 0;
+  font-size: 16px;
+  color: #343434;
+  line-height: 1.2em;
+}
+/* containers */
+#audience-reviews {
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+}
+.review-container {
+  width: 100%;
+  margin: auto;
+  padding: 10px;
+}
+
+/* review-container headers */
 .audienceReviewHeader {
-  white-space: nowrap;
-  font-size: 28px;
-  font-family: 'Neusa Next Pro Compact, Arial';
-  font-weight: 600;
-  line-height: 25px;
+  font-size: 26px;
+  font-family: 'BebasNeue', 'Arial';
+  font-weight: 500;
+  line-height: 30px;
 }
 .audienceReviewHeader::before {
   background-color: #fa320a;
@@ -24,4 +42,81 @@ div {
   min-width: 20px;
   height: 20px;
   position: absolute;
+}
+
+/* two reviews per row */
+.row {
+  z-index: 0;
+  position: relative;
+}
+.review {
+  border: 2px solid #000;
+  padding: 12px;
+  border-radius: 0;
+  background: #FFF;
+  position: relative;
+  width: 100%;
+}
+.review::before, .review::after {
+  border-style: solid;
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0;
+} 
+.review::before {
+  border-color: transparent #000 transparent transparent;
+  border-width: 0 28px 28px 0;
+  bottom: -28px;
+  left: 39px;
+  z-index: 0;
+}
+.review::after {
+  border-color: transparent #FFF transparent transparent;
+  border-width: 0 26px 26px 0;
+  bottom: -25px;
+  left: 40px;
+  z-index: 1;
+}
+.fa-star, .fa-star-half {
+  color: #FFAE00;
+}
+.col {
+  margin: 5px 15px;
+}
+.showMore span {
+  display: none;
+}
+.moreLink {
+  display: block;
+  text-align: right;
+  color: #2466d4;
+}
+a:link {
+  text-decoration: none;
+}
+
+/* user for the review */
+.review-userReview {
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em;
+  width: 95%;
+}
+.review-user {
+  margin-left: 75px;
+  margin-top: 10px;
+}
+.fa-user {
+  float: left;
+  max-height: 50px;
+  max-width: 50px;
+  width: auto;
+  padding-right: 10px;
+}
+
+.viewAll {
+  color: #2466d4;
+  float: right;
+  margin-top: 15px;
 }
