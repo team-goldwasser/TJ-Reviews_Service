@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
 import AudienceReview from './components/AudienceReview.jsx';
+import PostReview from './components/PostReview.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,7 +17,6 @@ class App extends React.Component {
     this.getMovieReviews = this.getMovieReviews.bind(this);
   }
 
-  // get ID from source of truth
   getMovieReviews() {
     $.ajax({
       url: `/reviews/audience/${this.state.id}`,
@@ -44,8 +44,11 @@ class App extends React.Component {
     this.getMovieReviews();
   }
   render() {
-    return(
-      <AudienceReview title={this.state.title} reviews={this.state.reviews}/>
+    return (
+      <div>
+        <PostReview id={this.state.id}/>
+        <AudienceReview title={this.state.title} reviews={this.state.reviews}/>
+      </div>
     )
   }
 }
