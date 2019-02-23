@@ -46,7 +46,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <PostReview id={this.state.id}/>
+        {/* <PostReview id={this.state.id}/> */}
         <AudienceReview title={this.state.title} reviews={this.state.reviews}/>
       </div>
     )
