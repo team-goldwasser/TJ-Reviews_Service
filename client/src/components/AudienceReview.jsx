@@ -36,7 +36,7 @@ const AudienceReview = (props) => {
   return (
   <div className="review-container">
     <div className="audienceReviewHeader row p-3">
-      <div className='header-movietitle'>&nbsp;Audience Reviews for <em>{props.title}&nbsp;</em></div>
+      <div className='header-movietitle'>Audience Reviews for <em>{props.title}&nbsp;</em></div>
     </div>
     <div className="reviews">{reviews}</div>
     <div className="viewAll">View All</div>

@@ -11,7 +11,8 @@ class App extends React.Component {
     this.state = {
       id: "284054",
       title: "How to Train your Dragon: The Hidden World",
-      reviews: []
+      reviews: [],
+      environment: 'http://localhost:9003'
     };
     this.getMovieID = this.getMovieID.bind(this);
     this.getMovieReviews = this.getMovieReviews.bind(this);
@@ -19,7 +20,7 @@ class App extends React.Component {
 
   getMovieReviews() {
     $.ajax({
-      url: `/reviews/audience/${this.state.id}`,
+      url: this.state.environment + `/reviews/audience/${this.state.id}`,
       success: (data) => {
         console.log('data', JSON.parse(data));
         this.setState({
@@ -46,7 +47,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {/* <PostReview id={this.state.id}/> */}
         <AudienceReview title={this.state.title} reviews={this.state.reviews}/>
       </div>
     )
@@ -54,3 +54,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, document.getElementById('audience-reviews'));
+ReactDOM.render(<PostReview />, document.getElementById('post-reviews'));

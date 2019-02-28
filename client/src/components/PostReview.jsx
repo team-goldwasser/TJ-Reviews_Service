@@ -24,7 +24,7 @@ class PostReview extends React.Component {
                 <span className="fa fa-star" data-rating="3"></span>
                 <span className="fa fa-star" data-rating="4"></span>
                 <span className="fa fa-star" data-rating="5"></span>
-                <input type="hidden" name="whatever" class="rating-value" value="3"></input>
+                <input type="hidden" name="whatever" className="rating-value" value="3"></input>
               </div>
             <div className="review-wrapper">
               <textarea className="addReview box">Add a Review</textarea>
