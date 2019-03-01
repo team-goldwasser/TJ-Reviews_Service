@@ -3,6 +3,14 @@ import React from 'react';
 class PostReview extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      value: ""
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
   }
   render() {
     return (
@@ -27,7 +35,7 @@ class PostReview extends React.Component {
                 <input type="hidden" name="whatever" className="rating-value" value="3"></input>
               </div>
             <div className="review-wrapper">
-              <textarea className="addReview box">Add a Review</textarea>
+              <textarea className="addReview box" value={this.state.value} onChange={this.handleChange}>Add a Review</textarea>
               <div className="rating-submit">
                 <button className='post btn'>Post</button>
               </div>

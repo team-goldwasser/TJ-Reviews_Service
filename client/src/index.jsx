@@ -4,15 +4,18 @@ import $ from 'jquery';
 
 import AudienceReview from './components/AudienceReview.jsx';
 import PostReview from './components/PostReview.jsx';
+import PostReviewSmall from './components/PostReviewSmall.jsx';
+import {getMovieIDURL, getEnvironment} from '../../server/environment.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: "284054",
-      title: "How to Train your Dragon: The Hidden World",
+      id: "",
+      urlTitle: getMovieIDURL(),
       reviews: [],
-      environment: 'http://localhost:9003'
+      environment: getEnvironment(),
+      title: ""
     };
     this.getMovieID = this.getMovieID.bind(this);
     this.getMovieReviews = this.getMovieReviews.bind(this);
@@ -20,9 +23,9 @@ class App extends React.Component {
 
   getMovieReviews() {
     $.ajax({
-      url: this.state.environment + `/reviews/audience/${this.state.id}`,
+      url: this.state.environment.reviews + `/reviews/audience/${this.state.id}`,
       success: (data) => {
-        console.log('data', JSON.parse(data));
+        // console.log('data', JSON.parse(data));
         this.setState({
           reviews: JSON.parse(data)
         });
@@ -37,12 +40,28 @@ class App extends React.Component {
   // get ID from source of truth
   getMovieID() {
     // AJAX call to get movie id/title
-    // on success, set id/title
+    console.log('run', this.state.urlTitle);
+    $.ajax({
+      url: this.state.environment.scoreboard + `/m/movieinfo/${this.state.urlTitle}`,
+      // on success, set id/title
+      success: (data) => {
+        console.log('data', (data.id.toString()));
+        this.setState({
+          title: data.title,
+          id: data.id.toString()
+        });
+        this.getMovieReviews();
+      },
+      error: (err) => {
+        console.log("error getting movie data", err);
+      },
+      type: "GET"
+    });
   }
 
   componentDidMount() {
-    // this.getMovieID();
-    this.getMovieReviews();
+    this.getMovieID();
+    // this.getMovieReviews();
   }
   render() {
     return (
@@ -55,3 +74,4 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, document.getElementById('audience-reviews'));
 ReactDOM.render(<PostReview />, document.getElementById('post-reviews'));
+ReactDOM.render(<PostReviewSmall />, document.getElementById('addmobilerating'));
