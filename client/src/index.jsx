@@ -72,6 +72,8 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('audience-reviews'));
-ReactDOM.render(<PostReview />, document.getElementById('post-reviews'));
-ReactDOM.render(<PostReviewSmall />, document.getElementById('addmobilerating'));
+// ReactDOM.render(<App />, document.getElementById('audience-reviews'));
+// ReactDOM.render(<PostReview />, document.getElementById('post-reviews'));
+// ReactDOM.render(<PostReviewSmall />, document.getElementById('addmobilerating'));
+
+export default App;
