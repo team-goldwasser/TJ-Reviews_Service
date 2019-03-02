@@ -1,10 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import $ from 'jquery';
-
 import AudienceReview from './components/AudienceReview.jsx';
-import PostReview from './components/PostReview.jsx';
-import PostReviewSmall from './components/PostReviewSmall.jsx';
 import {getMovieIDURL, getEnvironment} from '../../server/environment.js';
 
 class App extends React.Component {
@@ -71,9 +67,5 @@ class App extends React.Component {
     )
   }
 }
-
-// ReactDOM.render(<App />, document.getElementById('audience-reviews'));
-// ReactDOM.render(<PostReview />, document.getElementById('post-reviews'));
-// ReactDOM.render(<PostReviewSmall />, document.getElementById('addmobilerating'));
 
 export default App;

@@ -13,8 +13,6 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
-
-
 app.options('*', cors());
 
 app.get('/reviews/audience/:title', (req, res) => {
