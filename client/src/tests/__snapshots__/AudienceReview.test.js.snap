@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AudienceReview should render correctly in "debug" mode 1`] = `
+<div
+  className="review-container"
+>
+  <div
+    className="audienceReviewHeader row p-3"
+  >
+    <div
+      className="header-movietitle"
+    >
+      Audience Reviews for 
+      <em>
+        Black Panther
+      </em>
+    </div>
+  </div>
+  <div
+    className="reviews"
+  >
+    <div
+      className="row"
+      key="0"
+    >
+      <div
+        className="review-wrapper col p-3"
+        key="59"
+      >
+        <div
+          className="review"
+        >
+          <div
+            className="review-star"
+          />
+          <div
+            className="review-userReview"
+          >
+            Cat ipsum dolor sit amet, touch my tail, i shred your hand purrrr slap owner's face at 5am until human fills food dish. Purr while eating sit in box or steal the warm chair right after you get up damn that dog yet scamper annoy the old grumpy cat, start a fight and then retreat to wash when i lose stand in doorway, unwilling to chose whether to stay in or go
+          </div>
+        </div>
+        <div
+          className="review-user"
+        >
+          <i
+            className="far fa-user fa-2x"
+          />
+          <div>
+            deal
+          </div>
+        </div>
+      </div>
+      <div
+        className="review-wrapper col p-3"
+        key="60"
+      >
+        <div
+          className="review"
+        >
+          <div
+            className="review-star"
+          >
+            <i
+              className="far fa-star"
+              key="0"
+            />
+            <i
+              className="far fa-star"
+              key="1"
+            />
+            <i
+              className="far fa-star"
+              key="2"
+            />
+          </div>
+          <div
+            className="review-userReview"
+          >
+            dolor sit amet, touch my tail, i shred your hand purrrr slap owner's face at 5am until human fills food dish. Purr while eating sit in box or steal the warm chair right after you get up damn that dog yet scamper annoy the old grumpy cat, start a fight and then retreat to wash when i lose stand in doorway, unwilling to chose whether to stay in or go out. Stare at owner accusingly then wink. Lick face hiss at owner, pee a lot, and meow repeatedly scratch at fence purrrrrr
+          </div>
+        </div>
+        <div
+          className="review-user"
+        >
+          <i
+            className="far fa-user fa-2x"
+          />
+          <div>
+            do
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+      key="1"
+    >
+      <div
+        className="review-wrapper col p-3"
+        key="61"
+      >
+        <div
+          className="review"
+        >
+          <div
+            className="review-star"
+          >
+            <i
+              className="far fa-star"
+              key="0"
+            />
+            <i
+              className="far fa-star"
+              key="1"
+            />
+            <i
+              className="far fa-star"
+              key="2"
+            />
+            <i
+              className="far fa-star"
+              key="3"
+            />
+            <i
+              className="far fa-star-half"
+              key="4.5"
+            />
+          </div>
+          <div
+            className="review-userReview"
+          >
+            tail, i shred your hand purrrr slap owner's face at 5am until human fills food dish. Purr while eating sit in box or steal the warm chair right after you get up damn that dog yet scamper annoy the old grumpy cat, start a fight and then retreat to wash when i lose stand in doorway, unwilling to chose whether to stay in or go out. Stare at owner accusingly then wink. Lick face hiss
+          </div>
+        </div>
+        <div
+          className="review-user"
+        >
+          <i
+            className="far fa-user fa-2x"
+          />
+          <div>
+            do
+          </div>
+        </div>
+      </div>
+      <div
+        className="review-wrapper col p-3"
+        key="62"
+      >
+        <div
+          className="review"
+        >
+          <div
+            className="review-star"
+          >
+            <i
+              className="far fa-star"
+              key="0"
+            />
+            <i
+              className="far fa-star-half"
+              key="1.5"
+            />
+          </div>
+          <div
+            className="review-userReview"
+          >
+            tail, i shred your hand purrrr slap owner's face at 5am until human fills food dish. Purr while eating sit in box or steal the warm chair right after you get up damn that dog yet scamper annoy the old grumpy cat, start a fight and then retreat to wash when i lose stand in doorway, unwilling to chose whether to stay in or go out. Stare at owner accusingly then wink. Lick face hiss at owner, pee a lot, and meow repeatedly scratch at fence purrrrrr eat muffins and poutine until owner comes back meow all night having their mate disturbing sleeping humans
+          </div>
+        </div>
+        <div
+          className="review-user"
+        >
+          <i
+            className="far fa-user fa-2x"
+          />
+          <div>
+            development
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="viewAll"
+  >
+    View All
+  </div>
+</div>
+`;

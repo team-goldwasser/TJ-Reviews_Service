@@ -21,7 +21,7 @@ class App extends React.Component {
     $.ajax({
       url: this.state.environment.reviews + `/reviews/audience/${this.state.id}`,
       success: (data) => {
-        // console.log('data', JSON.parse(data));
+        console.log('data', JSON.parse(data));
         this.setState({
           reviews: JSON.parse(data)
         });

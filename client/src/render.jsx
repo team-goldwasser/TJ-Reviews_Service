@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './index';
+import App from '.';
 import PostReview from './components/PostReview.jsx';
 import PostReviewSmall from './components/PostReviewSmall.jsx';
 

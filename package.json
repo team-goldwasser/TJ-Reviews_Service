@@ -6,7 +6,7 @@
   "scripts": {
     "react": "webpack -d --watch",
     "start": "nodemon server/app.js",
-    "test": "export NODE_ENV=UAT && mysql -u root <test/db/UATschema.sql && jest -i",
+    "test": "export NODE_ENV=UAT && mysql -u root <test/db/UATschema.sql && jest",
     "seed": "mysql -u root <server/schema.sql && node data/scripts/generateMovieReviews.js && node data/scripts/generateUsers.js && node server/database/index.js"
   },
   "repository": {
@@ -23,6 +23,7 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
+    "axios": "^0.18.0",
     "babel-loader": "^8.0.5",
     "babel-preset-jest": "^24.1.0",
     "enzyme": "^3.9.0",
