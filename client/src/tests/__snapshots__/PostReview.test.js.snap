@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostReview should render correctly in "debug" mode 1`] = `
+<div
+  className="adduser-container"
+>
+  <div
+    className="post-container"
+  >
+    <div
+      className="addRating"
+    >
+      <span
+        className="ratingText"
+      >
+        Add your rating
+      </span>
+    </div>
+    <div
+      className="rating"
+    >
+      <div
+        className="profile box"
+      >
+        <i
+          className="far fa-user fa-5x"
+        />
+      </div>
+      <div
+        className="ratingReview"
+      >
+        <div
+          className="add-wrapper"
+        >
+          <button
+            className="interested box"
+            value="-"
+          >
+            - Not interested
+          </button>
+        </div>
+        <div
+          className="add-wrapper"
+        >
+          <button
+            className="wantToSee box"
+            value="+"
+          >
+            + Want to See
+          </button>
+        </div>
+        <div
+          className="starsRating box"
+        >
+          <span
+            className="fa fa-star"
+            data-rating="1"
+          />
+          <span
+            className="fa fa-star"
+            data-rating="2"
+          />
+          <span
+            className="fa fa-star"
+            data-rating="3"
+          />
+          <span
+            className="fa fa-star"
+            data-rating="4"
+          />
+          <span
+            className="fa fa-star"
+            data-rating="5"
+          />
+          <input
+            className="rating-value"
+            name="whatever"
+            type="hidden"
+            value="3"
+          />
+        </div>
+        <div
+          className="review-wrapper"
+        >
+          <textarea
+            className="addReview box"
+            onChange={[Function]}
+            value=""
+          >
+            Add a Review
+          </textarea>
+          <div
+            className="rating-submit"
+          >
+            <button
+              className="post btn"
+            >
+              Post
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
