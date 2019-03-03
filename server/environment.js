@@ -10,11 +10,15 @@ const getMovieIDURL = function() {
 
 const getEnvironment = function() {
   let service = {};
+  console.log('env', process.env.NODE_ENV)
+  if(process.env.NODE_ENV === 'development') {
+    console.log('wtf ou pear')
+  }
   if (process.env.NODE_ENV === 'production') {
     service = {
       scoreboard:'http://localhost:9001',
       showtime: 'http://localhost:9002',
-      reviews:'http://localhost:9003'
+      reviews:'http://ec2-34-200-239-184.compute-1.amazonaws.com:9003'
     }
   } else {
     service = {
