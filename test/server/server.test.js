@@ -77,7 +77,7 @@ describe("Testing Get for '/reviews/scoreboard/:title'", () => {
     });
   });
   test('It should respond with a empty object when passed in invalid title id', () => {
-    return request(app.server).get('/reviews/audience/999999').then( (response) => {
+    return request(app.server).get('/reviews/scoreboard/999999').then( (response) => {
       var audienceReview = JSON.parse(response.text);
       expect(audienceReview).toEqual([]);
     });
