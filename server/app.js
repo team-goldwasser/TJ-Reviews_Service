@@ -25,6 +25,26 @@ app.get('/reviews/audience/:title', (req, res) => {
   });
 });
 
+app.get('/reviews/audience/:title/count', (req, res) => {
+  db.getReviewCount(req.params.title, (err, results) => {
+    if (err) {
+      throw err;
+    } else {
+      res.send(JSON.stringify(results, null, 2));
+    }
+  });
+});
+
+app.get('/reviews/audience/:title/:page', (req, res) => {
+  db.getPaginatedReview(req.params.title, req.params.page, (err, results) => {
+    if (err) {
+      throw err;
+    } else {
+      res.send(JSON.stringify(results, null, 2));
+    }
+  });
+});
+
 app.get('/reviews/scoreboard/:title', (req, res) => {
   db.getAudienceScoreboard(req.params.title, (err, results) => {
     if (err) {

@@ -22,6 +22,18 @@ var getAudienceReview = function(id, callback) {
   });
 }
 
+var getPaginatedReview = function(id, page, callback) {
+  connection.query(`SELECT id, users.username, review, stars FROM audience_reviews \
+  INNER JOIN users ON users.user_id = audience_reviews.user_id 
+  AND movie_id=${id} LIMIT ${(page-1) * 3}, ${3};`, (err, results) => {
+    if (err) {
+      console.log("Error getting reviews", err);
+    } else {
+      callback(null, results);
+    }
+  });
+}
+
 var getAudienceScoreboard = function(id, callback) {
   connection.query(`SELECT AVG(stars) as averageRating, COUNT(review) as userRatings, \
   ((SELECT COUNT(liked) FROM audience_reviews WHERE liked=1 AND movie_id=${id}) / COUNT(review) * 100) as audienceScore 
@@ -31,7 +43,17 @@ var getAudienceScoreboard = function(id, callback) {
     } else {
       callback(null, results);
     }
-  })
+  });
 }
 
-module.exports = {getAudienceReview, getAudienceScoreboard, connection};
+var getReviewCount = function(id, callback) {
+  connection.query(`SELECT COUNT(review) as maxPage FROM audience_reviews WHERE movie_id=${id};`, (err, results) => {
+    if (err) {
+      console.log('Error getting reviews', err);
+    } else {
+      callback(null, results);
+    }
+  });
+}
+
+module.exports = {getAudienceReview, getAudienceScoreboard, getReviewCount, getPaginatedReview, connection};

@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import AudienceReview from './components/AudienceReview.jsx';
 import {getMovieIDURL, getEnvironment} from '../../server/environment.js';
-import toggle from '../dist/toggle.js'
+import toggle from './toggle.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -48,7 +48,7 @@ class App extends React.Component {
         this.getMovieReviews();
       },
       error: (err) => {
-        console.log("error getting movie data", err);
+        console.log("error getting movie id", err);
       },
       type: "GET"
     });
@@ -60,8 +60,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <AudienceReview title={this.state.title} reviews={this.state.reviews}/>
+      <div className='reviews-containers'>
+        <AudienceReview title={this.state.title} reviews={this.state.reviews} environment={this.state.environment} id={this.state.id}/>
       </div>
     )
   }
