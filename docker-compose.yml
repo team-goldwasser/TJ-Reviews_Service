@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web:
+    build: ./
+    env_file:
+      - ./.env
+    depends_on: 
+      - db
+    ports:
+      - "${WEB_PORT}:${WEB_PORT}"
+  db:
+    build: ./server
+    ports:
+      - "3306:3306"
+    env_file:
+      - ./.env

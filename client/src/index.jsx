@@ -55,7 +55,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getMovieReviews();
+    this.getMovieID();
   }
 
   render() {

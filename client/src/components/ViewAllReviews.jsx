@@ -9,7 +9,7 @@ class ViewAllReviews extends React.Component {
       maxPage: 1,
       paginatedReviews: [{
         id: 59,
-        review: "Cat ipsum dolor sit amet, touch my tail, i shred your hand purrrr slap owner's face at 5am until human fills food dish. Purr while eating sit in box or steal the warm chair right after you get up damn…",
+        review: "Cat ip",
         stars: 3,
         username: "deal"
       },

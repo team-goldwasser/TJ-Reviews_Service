@@ -282,6 +282,7 @@ a {
 }
 
 .review_table .review_table_row {
+  width: 100%;
   margin-top: 40px;
   border-top: 1px solid #ddd;
   padding: 8px 0;

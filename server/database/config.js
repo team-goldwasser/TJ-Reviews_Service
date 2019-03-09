@@ -12,9 +12,10 @@ var config = {
     database: 'UATreviews'
   },
   production: {
-    host: 'localhost',
+    host: '192.168.99.100',
+    port: '3306',
     user: 'root',
-    password: '',
+    password: 'Password1',
     database: 'reviews'
   }
 }
