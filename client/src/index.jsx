@@ -1,30 +1,31 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import $ from'jquery';
-
+import $ from 'jquery';
 import AudienceReview from './components/AudienceReview.jsx';
+import {getMovieIDURL, getEnvironment} from '../../server/environment.js';
+import toggle from '../dist/toggle.js'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       id: "284054",
-      title: "",
-      reviews: []
+      urlTitle: getMovieIDURL(),
+      reviews: [],
+      environment: getEnvironment(),
+      title: "Black Panther"
     };
     this.getMovieID = this.getMovieID.bind(this);
     this.getMovieReviews = this.getMovieReviews.bind(this);
   }
 
-  // get ID from source of truth
   getMovieReviews() {
     $.ajax({
-      url: `/reviews/audience/${this.state.id}`,
+      url: this.state.environment.reviews + `/reviews/audience/${this.state.id}`,
       success: (data) => {
-        console.log('data', JSON.parse(data));
         this.setState({
           reviews: JSON.parse(data)
         });
+        toggle();
       },
       error: (err) => {
         console.log("error getting movie data", err);
@@ -36,18 +37,34 @@ class App extends React.Component {
   // get ID from source of truth
   getMovieID() {
     // AJAX call to get movie id/title
-    // on success, set id/title
+    $.ajax({
+      url: this.state.environment.scoreboard + `/m/movieinfo/${this.state.urlTitle}`,
+      // on success, set id/title
+      success: (data) => {
+        this.setState({
+          title: data.title,
+          id: data.id.toString()
+        });
+        this.getMovieReviews();
+      },
+      error: (err) => {
+        console.log("error getting movie data", err);
+      },
+      type: "GET"
+    });
   }
 
   componentDidMount() {
-    // this.getMovieID();
     this.getMovieReviews();
   }
+
   render() {
-    return(
-      <AudienceReview title={this.state.title} reviews={this.state.reviews}/>
+    return (
+      <div>
+        <AudienceReview title={this.state.title} reviews={this.state.reviews}/>
+      </div>
     )
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('main'));
+export default App;

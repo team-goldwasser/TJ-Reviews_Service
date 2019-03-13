@@ -2,9 +2,18 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var db = require('./database/helper.js');
+var cors = require('cors');
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cors());
+
+app.options('*', cors());
 
 app.get('/reviews/audience/:title', (req, res) => {
   db.getAudienceReview(req.params.title, (err, results) => {
@@ -24,7 +33,6 @@ app.get('/reviews/scoreboard/:title', (req, res) => {
       res.send(JSON.stringify(results, null, 2));
     }
   });
-  //scoreboard.audienceScore = (liked/reviewCount*100).toFixed(0);
 });
 
 let port = process.env.PORT || 9003;

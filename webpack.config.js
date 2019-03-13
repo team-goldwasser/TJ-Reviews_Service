@@ -1,10 +1,15 @@
 module.exports = {
-  entry: __dirname + '/client/src/index.jsx',
+  entry: {
+    index: __dirname + '/client/src/render.jsx'
+  },
   module: {
     rules: [
       { 
-        test: [/\.jsx$/],
+        test: [/\.jsx?$/],
         exclude: /node_modules/,
+        resolve: {
+          extensions: ['.js', '.jsx']
+        },
         use: {
           loader: 'babel-loader',
           options: {
