@@ -1,7 +1,7 @@
 var config = {
   development: {
     host: 'localhost',
-    user: 'root',
+    user: 'admin',
     password: '',
     database: 'reviews'
   },

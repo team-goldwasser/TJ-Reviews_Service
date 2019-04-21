@@ -1,13 +1,21 @@
-var mysql = require('mysql');
+const { Pool } = require('pg');
 var env = process.env.NODE_ENV || 'development';
-var db = require('./config')[env];
+// var db = require('./config')[env];
 
-var connection = mysql.createConnection(db);
+const pool = new Pool({
+  host: 'localhost',
+  user: 'dbuser',
+  password: '',
+  max: 20,
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 2000
+});
 
-connection.connect(function(err) {
+pool.connect(function(err) {
   if (err) {
-     console.log(err);
-  }
+     console.log('Error acquiring client', err.stack);
+  } 
+  console.log('connected to DB');
 });
 
 var getAudienceReview = function(id, callback) {
