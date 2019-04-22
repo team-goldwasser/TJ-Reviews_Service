@@ -14,7 +14,7 @@ class App extends React.Component {
       environment: getEnvironment(),
       title: "Black Panther"
     };
-    this.getMovieID = this.getMovieID.bind(this);
+    // this.getMovieID = this.getMovieID.bind(this);
     this.getMovieReviews = this.getMovieReviews.bind(this);
   }
 
@@ -35,24 +35,24 @@ class App extends React.Component {
   }
 
   // get ID from source of truth
-  getMovieID() {
-    // AJAX call to get movie id/title
-    $.ajax({
-      url: this.state.environment.scoreboard + `/m/movieinfo/${this.state.urlTitle}`,
-      // on success, set id/title
-      success: (data) => {
-        this.setState({
-          title: data.title,
-          id: data.id.toString()
-        });
-        this.getMovieReviews();
-      },
-      error: (err) => {
-        console.log("error getting movie data", err);
-      },
-      type: "GET"
-    });
-  }
+  // getMovieID() {
+  //   // AJAX call to get movie id/title
+  //   $.ajax({
+  //     url: this.state.environment.scoreboard + `/m/movieinfo/${this.state.urlTitle}`,
+  //     // on success, set id/title
+  //     success: (data) => {
+  //       this.setState({
+  //         title: data.title,
+  //         id: data.id.toString()
+  //       });
+  //       this.getMovieReviews();
+  //     },
+  //     error: (err) => {
+  //       console.log("error getting movie data", err);
+  //     },
+  //     type: "GET"
+  //   });
+  // }
 
   componentDidMount() {
     this.getMovieReviews();

@@ -1,11 +1,12 @@
 const { Pool } = require('pg');
 var env = process.env.NODE_ENV || 'development';
-// var db = require('./config')[env];
+var db = require('./config')[env];
 
 const pool = new Pool({
-  host: 'localhost',
-  user: 'dbuser',
-  password: '',
+  host: db.host,
+  user: db.user,
+  password: db.password,
+  database: db.database,
   max: 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000
@@ -19,7 +20,7 @@ pool.connect(function(err) {
 });
 
 var getAudienceReview = function(id, callback) {
-  connection.query(`SELECT id, users.username, review, stars FROM audience_reviews \
+  pool.query(`SELECT id, users.username, review, stars FROM audience_reviews \
   INNER JOIN users ON users.user_id = audience_reviews.user_id 
   AND movie_id=${id} LIMIT 4;`, (err, results) => {
     if (err) {
@@ -31,7 +32,7 @@ var getAudienceReview = function(id, callback) {
 }
 
 var getAudienceScoreboard = function(id, callback) {
-  connection.query(`SELECT AVG(stars) as averageRating, COUNT(review) as userRatings, \
+  pool.query(`SELECT AVG(stars) as averageRating, COUNT(review) as userRatings, \
   ((SELECT COUNT(liked) FROM audience_reviews WHERE liked=1 AND movie_id=${id}) / COUNT(review) * 100) as audienceScore 
   \ FROM audience_reviews where movie_id=${id};`, (err, results) => {
     if (err) {
@@ -42,4 +43,4 @@ var getAudienceScoreboard = function(id, callback) {
   })
 }
 
-module.exports = {getAudienceReview, getAudienceScoreboard, connection};
+module.exports = {getAudienceReview, getAudienceScoreboard, pool};

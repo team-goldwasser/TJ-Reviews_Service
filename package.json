@@ -10,7 +10,8 @@
     "seed": "mysql -u root -p <server/schema.sql && node data/scripts/generateMovieReviews.js && node data/scripts/generateUsers.js && node server/database/index.js",
     "newseeder": "psql postgres -U dbuser -f server/schema.sql",
     "newseedMovies": "node data/scripts/seedingMovieReviews.js",
-    "newseedUsers": "node data/scripts/seedingUsers.js"
+    "newseedUsers": "node data/scripts/seedingUsers.js",
+    "newseedTitles": "node data/scripts/seedingMovieTitles.js"
   },
   "repository": {
     "type": "git",
