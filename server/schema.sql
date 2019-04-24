@@ -25,9 +25,11 @@ CREATE TABLE users (
 
 CREATE TABLE movies (
   movie_id INT NOT NULL PRIMARY KEY UNIQUE,
-  movie_title VARCHAR(100),
+  title VARCHAR(100),
   title_url VARCHAR(100)
 );
+
+ALTER TABLE audience_reviews ALTER COLUMN created_at SET DEFAULT now();
 
 COPY audience_reviews(user_id, movie_id, stars, review, created_at, not_interested, want_to_see_it, liked) FROM '/Users/soupuu/Desktop/RPT11/SDC/Project_Repos/TJ-Reviews_Service/data/seed_files/newReviews_5.csv' DELIMITER ',' CSV HEADER;
 COPY audience_reviews(user_id, movie_id, stars, review, created_at, not_interested, want_to_see_it, liked) FROM '/Users/soupuu/Desktop/RPT11/SDC/Project_Repos/TJ-Reviews_Service/data/seed_files/newReviews_4.csv' DELIMITER ',' CSV HEADER;
@@ -35,6 +37,6 @@ COPY audience_reviews(user_id, movie_id, stars, review, created_at, not_interest
 COPY audience_reviews(user_id, movie_id, stars, review, created_at, not_interested, want_to_see_it, liked) FROM '/Users/soupuu/Desktop/RPT11/SDC/Project_Repos/TJ-Reviews_Service/data/seed_files/newReviews_2.csv' DELIMITER ',' CSV HEADER;
 COPY audience_reviews(user_id, movie_id, stars, review, created_at, not_interested, want_to_see_it, liked) FROM '/Users/soupuu/Desktop/RPT11/SDC/Project_Repos/TJ-Reviews_Service/data/seed_files/newReviews_1.csv' DELIMITER ',' CSV HEADER;
 COPY users(user_id, username, has_profile_pic, etag, objectURL) FROM '/Users/soupuu/Desktop/RPT11/SDC/Project_Repos/TJ-Reviews_Service/data/seed_files/users.csv' DELIMITER ',' CSV HEADER;
-COPY movies(movie_id, movie_title, title_url) FROM '/Users/soupuu/Desktop/RPT11/SDC/Project_Repos/TJ-Reviews_Service/data/seed_files/movieTitles.csv' DELIMITER ',' CSV HEADER;
+COPY movies(movie_id, title, title_url) FROM '/Users/soupuu/Desktop/RPT11/SDC/Project_Repos/TJ-Reviews_Service/data/seed_files/movieTitles.csv' DELIMITER ',' CSV HEADER;
 
   

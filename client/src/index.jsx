@@ -8,13 +8,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: "297802",
+      id: "72450",
       urlTitle: getMovieIDURL(),
       reviews: [],
       environment: getEnvironment(),
-      title: "Black Panther"
+      title: "Optical Bedfordshire"
     };
-    // this.getMovieID = this.getMovieID.bind(this);
+    console.log(`this is the state,`, this.state)
+    this.getMovieID = this.getMovieID.bind(this);
     this.getMovieReviews = this.getMovieReviews.bind(this);
   }
 
@@ -23,7 +24,7 @@ class App extends React.Component {
       url: this.state.environment.reviews + `/reviews/audience/${this.state.id}`,
       success: (data) => {
         this.setState({
-          reviews: JSON.parse(data)
+          reviews: data
         });
         toggle();
       },
@@ -35,26 +36,28 @@ class App extends React.Component {
   }
 
   // get ID from source of truth
-  // getMovieID() {
-  //   // AJAX call to get movie id/title
-  //   $.ajax({
-  //     url: this.state.environment.scoreboard + `/m/movieinfo/${this.state.urlTitle}`,
-  //     // on success, set id/title
-  //     success: (data) => {
-  //       this.setState({
-  //         title: data.title,
-  //         id: data.id.toString()
-  //       });
-  //       this.getMovieReviews();
-  //     },
-  //     error: (err) => {
-  //       console.log("error getting movie data", err);
-  //     },
-  //     type: "GET"
-  //   });
-  // }
+  getMovieID() {
+    // AJAX call to get movie id/title
+    $.ajax({
+      url: this.state.environment.reviews + `/m/movieinfo/${this.state.urlTitle}`,
+      // on success, set id/title
+      success: (data) => {
+        var newData = data;
+        this.setState({
+          title: newData.title,
+          id: newData.movie_id.toString()
+        });
+        this.getMovieReviews();
+      },
+      error: (err) => {
+        console.log("error getting movie data", err);
+      },
+      type: "GET"
+    });
+  }
 
   componentDidMount() {
+    this.getMovieID();
     this.getMovieReviews();
   }
 
