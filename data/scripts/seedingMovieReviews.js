@@ -54,4 +54,9 @@ const chunkGen = (recordCount) => {
 
 chunkGen(chunksize);
 
+
+// var stream = client.query(copyFrom(`COPY ${criticTable} (top_critic, name, img_url, organization) FROM STDIN CSV HEADER`)); var fileStream = fs.createReadStream(criticInput);
+
+
+
 module.exports.getRandomInt = getRandomInt;

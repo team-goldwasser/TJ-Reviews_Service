@@ -32,7 +32,6 @@ var getAudienceReview = function(id, callback) {
     if (err) {
       console.log("Error getting reviews", err);
     } else {
-      console.log(results);
       callback(null, results.rows);
     }
   });
@@ -56,7 +55,7 @@ var getMovietitle = function(url, callback) {
   var sql = `SELECT movie_id, title, title_url FROM movies WHERE title_url = $1 LIMIT 1; `;
   pool.query(sql, [url], (err, results) => {
     if (err) {
-      console.log('Error getting movie titles', err);
+      console.log('Error getting movie titles');
     } else {
       callback(null, results.rows[0]);
     }
@@ -86,7 +85,7 @@ const updateReview = (request, callback) => {
 
   pool.query(sql, [request.review, request.user_id, request.movie_id, ], (err, results) => {
       if (err) {
-        console.log('Error inserting new audience review', err);
+        console.log('Error inserting new audience review');
         throw err
       } else {
         callback(null, results.rows);

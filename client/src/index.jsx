@@ -9,12 +9,14 @@ class App extends React.Component {
     super(props);
     this.state = {
       id: "72450",
-      urlTitle: getMovieIDURL(),
+      urlTitle: "",
       reviews: [],
       environment: getEnvironment(),
       title: "Optical Bedfordshire"
     };
-    console.log(`this is the state,`, this.state)
+    this.setState({
+      urlTitle: getMovieIDURL()
+    })
     this.getMovieID = this.getMovieID.bind(this);
     this.getMovieReviews = this.getMovieReviews.bind(this);
   }

@@ -1,8 +1,9 @@
 const getMovieIDURL = function() {
-  let titleURL = window.location.pathname.slice(2).slice(1).slice(0, -1);
+  let titleURL = window.location.pathname.slice(2);
+  console.log(`this is the title,`, titleURL);
   if (titleURL.length === 0) {
     console.log('invalid url was passed in');
-    return "black_panther";
+    return "Optical_Bedfordshire";
   } else {
     return titleURL;
   }
