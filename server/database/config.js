@@ -1,9 +1,12 @@
+require('dotenv').config();
+
 var config = {
   development: {
-    host: 'localhost',
-    user: 'dbuser',
-    password: '',
-    database: 'reviews'
+    host: process.env.db_h,
+    user: process.env.db_u,
+    password: process.env.db_w,
+    database: 'reviews',
+    port: process.env.db_p
   },
   UAT: {
     host: 'localhost',
@@ -12,10 +15,11 @@ var config = {
     database: 'UATreviews'
   },
   production: {
-    host: 'localhost',
-    user: 'dbuser',
-    password: '',
-    database: 'reviews'
+    host: process.env.db_h,
+    user: process.env.db_u,
+    password: process.env.db_w,
+    database: 'reviews',
+    port: process.env.db_p
   }
 }
 

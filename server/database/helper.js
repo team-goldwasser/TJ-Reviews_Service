@@ -1,6 +1,4 @@
 const { Pool } = require('pg');
-const faker = require('faker');
-const randomizer = require('../../data/scripts/seedingMovieReviews.js');
 const env = process.env.NODE_ENV || 'development';
 const db = require('./config')[env];
 
@@ -10,6 +8,7 @@ const pool = new Pool({
   user: db.user,
   password: db.password,
   database: db.database,
+  port: db.port,
   max: 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000

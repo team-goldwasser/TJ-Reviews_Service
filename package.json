@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "react": "webpack -d --watch",
-    "start": "nodemon server/app.js",
+    "start-dev": "NODE_ENV=development nodemon server/app.js",
+    "start-prod": "NODE_ENV=production node server/app.js",
     "test": "export NODE_ENV=UAT && mysql -u root -p <test/db/UATschema.sql && jest",
     "seed": "mysql -u root -p <server/schema.sql && node data/scripts/generateMovieReviews.js && node data/scripts/generateUsers.js && node server/database/index.js"
   },
@@ -38,10 +39,10 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^7.0.0",
     "eslint": "^5.13.0",
     "express": "^4.16.4",
-    "faker": "4.1.0",
-    "mysql": "^2.16.0",
+    "faker": "^4.1.0",
     "nodemon": "^1.18.10",
     "pg": "7.10.0",
     "react": "^16.8.2",
