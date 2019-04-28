@@ -7,11 +7,7 @@
     "react": "webpack -d --watch",
     "start": "nodemon server/app.js",
     "test": "export NODE_ENV=UAT && mysql -u root -p <test/db/UATschema.sql && jest",
-    "seed": "mysql -u root -p <server/schema.sql && node data/scripts/generateMovieReviews.js && node data/scripts/generateUsers.js && node server/database/index.js",
-    "newseeder": "psql postgres -U dbuser -f server/schema.sql",
-    "newseedMovies": "node data/scripts/seedingMovieReviews.js",
-    "newseedUsers": "node data/scripts/seedingUsers.js",
-    "newseedTitles": "node data/scripts/seedingMovieTitles.js"
+    "seed": "mysql -u root -p <server/schema.sql && node data/scripts/generateMovieReviews.js && node data/scripts/generateUsers.js && node server/database/index.js"
   },
   "repository": {
     "type": "git",

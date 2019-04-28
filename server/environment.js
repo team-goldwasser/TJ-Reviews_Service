@@ -1,5 +1,5 @@
 const getMovieIDURL = function() {
-  let titleURL = window.location.pathname.slice(2);
+  let titleURL = window.location.pathname.slice(2).slice(1).replace(/\/$/, "");
   console.log(`this is the title,`, titleURL);
   if (titleURL.length === 0) {
     console.log('invalid url was passed in');

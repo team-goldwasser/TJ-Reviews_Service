@@ -1,4 +1,4 @@
 node_modules/
 config_moviedb.js
 .DS_Store
-data/seed_files
+*.csv
