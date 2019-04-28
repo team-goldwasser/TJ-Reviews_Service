@@ -1,5 +1,5 @@
 node_modules/
 config_moviedb.js
 .DS_Store
-*.csv
 .env
+*.csv
