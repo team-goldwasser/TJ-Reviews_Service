@@ -15,7 +15,7 @@ const getEnvironment = function() {
     service = {
       scoreboard:'http://ec2-13-57-3-67.us-west-1.compute.amazonaws.com:9001',
       showtime: 'http://ec2-54-67-109-163.us-west-1.compute.amazonaws.com:9002',
-      reviews:'http://ec2-34-200-239-184.compute-1.amazonaws.com:9003'
+      reviews:'http://ec2-35-165-132-177.us-west-2.compute.amazonaws.com:9003'
     }
   } else {
     service = {

@@ -10,15 +10,15 @@ const pool = new Pool({
   database: db.database,
   port: db.port,
   max: 20,
-  idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000
+  // idleTimeoutMillis: 30000,
+  // connectionTimeoutMillis: 2000
 });
 
 pool.connect(function(err) {
   if (err) {
      console.log('Error acquiring client', err.stack);
   } 
-  console.log('connected to DB');
+  console.log('connected to DB', db);
 });
 
 // READ functions
