@@ -16,6 +16,7 @@ class App extends React.Component {
     };
     this.getMovieID = this.getMovieID.bind(this);
     this.getMovieReviews = this.getMovieReviews.bind(this);
+    console.log('this is the enviroment,', this.state.environment);
   }
 
   getMovieReviews() {
