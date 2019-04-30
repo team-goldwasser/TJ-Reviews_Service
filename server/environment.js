@@ -1,6 +1,5 @@
 const getMovieIDURL = function() {
   let titleURL = window.location.pathname.slice(2).slice(1).replace(/\/$/, "");
-  console.log(`this is the title,`, titleURL);
   if (titleURL.length === 0) {
     console.log('invalid url was passed in');
     return "Optical_Bedfordshire";
@@ -11,7 +10,6 @@ const getMovieIDURL = function() {
 
 const getEnvironment = function() {
   let service = {};
-  console.log(`this is the environment: `, process.env.NODE_ENV);
  // if (process.env.NODE_ENV === 'production') {
     service = {
       scoreboard:'http://ec2-13-57-3-67.us-west-1.compute.amazonaws.com:9001',
