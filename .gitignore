@@ -3,3 +3,5 @@ config_moviedb.js
 .DS_Store
 .env
 *.csv
+newrelic*
+loaderio*

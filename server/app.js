@@ -1,9 +1,9 @@
+require('newrelic');
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var db = require('./database/helper.js');
 var cors = require('cors');
-require('newrelic');
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
