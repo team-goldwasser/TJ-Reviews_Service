@@ -10,7 +10,7 @@ const getMovieIDURL = function() {
 
 const getEnvironment = function() {
   let service = {};
- if (process.env.NODE_ENV === 'PRODUCTION') {
+ if (process.env.NODE_ENV === 'production') {
     service = {
       // scoreboard:'http://ec2-13-57-3-67.us-west-1.compute.amazonaws.com:9001',
       // showtime: 'http://ec2-54-67-109-163.us-west-1.compute.amazonaws.com:9002',
