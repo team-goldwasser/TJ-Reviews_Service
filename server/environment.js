@@ -10,19 +10,19 @@ const getMovieIDURL = function() {
 
 const getEnvironment = function() {
   let service = {};
- // if (process.env.NODE_ENV === 'production') {
+ if (process.env.NODE_ENV === 'PRODUCTION') {
     service = {
-      scoreboard:'http://ec2-13-57-3-67.us-west-1.compute.amazonaws.com:9001',
-      showtime: 'http://ec2-54-67-109-163.us-west-1.compute.amazonaws.com:9002',
+      // scoreboard:'http://ec2-13-57-3-67.us-west-1.compute.amazonaws.com:9001',
+      // showtime: 'http://ec2-54-67-109-163.us-west-1.compute.amazonaws.com:9002',
       reviews:'http://ec2-35-165-132-177.us-west-2.compute.amazonaws.com:9003'
     }
- // } else {
- //   service = {
- //     scoreboard: 'http://localhost:9001',
- //     showtime:'http://localhost:9002',
- //     reviews: 'http://localhost:9003'
- //   }
- // }
+ } else {
+   service = {
+    //  scoreboard: 'http://localhost:9001',
+    //  showtime:'http://localhost:9002',
+     reviews: 'http://localhost:9003'
+   }
+ }
   return service;
 }
 
