@@ -1,3 +1,4 @@
+var redis = require('redis');
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
@@ -15,7 +16,43 @@ app.use(cors());
 
 app.options('*', cors());
 
+var client = redis.createClient(6379,'34.213.141.243');
+
+client.on('connect', () => {
+  console.log('Redis client connected');
+});
+
+client.on("error", function (err) {
+    console.log("Error " + err);
+});
+
 // read functions
+app.get('/reviews/audience/:title', (req, res) => {
+
+  var urlKey= req.originalUrl;
+  console.log(urlKey);
+
+  client.get(urlKey, (err, cache) => {
+    if (err) {
+      console.log('Cannot pull from the cache');
+    }
+
+    if (cache) {
+      console.log('This is the cache:', cache);
+      res.status(200).json(JSON.parse(cache));
+    } else {
+      db.getAudienceReview(req.params.title, (err, results) => {
+        if (err) {
+          throw err;
+        } else {
+          client.set(urlKey, JSON.stringify(results))
+          res.status(200).json(results);
+        }
+      });
+    }
+  });
+});
+
 app.get('/reviews/audience/:title', (req, res) => {
   db.getAudienceReview(req.params.title, (err, results) => {
     if (err) {
@@ -93,3 +130,4 @@ var server = app.listen(port, function() {
 });
 
 module.exports = {server};
+
