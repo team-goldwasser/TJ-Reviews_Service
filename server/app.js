@@ -16,7 +16,7 @@ app.use(cors());
 
 app.options('*', cors());
 
-var client = redis.createClient(6379,'34.213.141.243');
+var client = redis.createClient(6379,'34.216.231.98');
 
 client.on('connect', () => {
   console.log('Redis client connected');
@@ -53,16 +53,16 @@ app.get('/reviews/audience/:title', (req, res) => {
   });
 });
 
-app.get('/reviews/audience/:title', (req, res) => {
-  db.getAudienceReview(req.params.title, (err, results) => {
-    if (err) {
-      throw err;
-    } else {
-      // res.send(JSON.stringify(results, null, 2));
-      res.status(200).json(results);
-    }
-  });
-});
+// app.get('/reviews/audience/:title', (req, res) => {
+//   db.getAudienceReview(req.params.title, (err, results) => {
+//     if (err) {
+//       throw err;
+//     } else {
+//       // res.send(JSON.stringify(results, null, 2));
+//       res.status(200).json(results);
+//     }
+//   });
+// });
 
 app.get('/reviews/scoreboard/:title', (req, res) => {
   db.getAudienceScoreboard(req.params.title, (err, results) => {
